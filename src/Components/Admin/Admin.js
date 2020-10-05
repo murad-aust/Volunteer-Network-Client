@@ -44,14 +44,14 @@ const Admin = () => {
     const [remove, setRemove] = useState(false);
     const classes = useStyles();
     useEffect(() => {
-        fetch('http://localhost:5000/admin/activities')
+        fetch('https://fast-woodland-36481.herokuapp.com/admin/activities')
             .then(res => res.json())
             .then(data => setVolunteer(data))
 
     }, [remove])
 
     const handleVolunteerRemove = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://fast-woodland-36481.herokuapp.com/delete/${id}`, {
             method: 'DELETE',
 
         })

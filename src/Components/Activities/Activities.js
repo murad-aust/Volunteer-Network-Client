@@ -37,7 +37,7 @@ const Activities = () => {
 }
    
     useEffect(()=>{
-        fetch('http://localhost:5000/activities?email='+ loggedInUser.email)
+        fetch('https://fast-woodland-36481.herokuapp.com/activities?email='+ loggedInUser.email)
         .then(res => res.json())
         .then(data =>setActivity(data))
     },[remove])
