@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Activities from './Components/Activities/Activities';
+import AddEvent from './Components/AddEvent/AddEvent';
+import Admin from './Components/Admin/Admin';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
@@ -20,41 +22,46 @@ function App() {
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-        <Router>
+      <Router>
 
         <Switch>
 
-            <Route exact path="/">
-                <Home></Home>
-            </Route>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
 
-            <PrivateRoute path="/event/:id">
-                  <Register></Register>
-            </PrivateRoute>
+          <PrivateRoute path="/event/:id">
+            <Register></Register>
+          </PrivateRoute>
 
-            <Route path="/activities">
-                  <Activities></Activities>
-            </Route>
+          <Route path="/activities">
+            <Activities></Activities>
+          </Route>
+          <Route path="/admin">
+            <Admin></Admin>
+          </Route>
+
+          <Route exact path="/login">
+            <Login></Login>
+          </Route>
+
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/addEvent">
+            <AddEvent></AddEvent>
+          </Route>
+
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
+
+        </Switch>
+
+      </Router>
 
 
-            <Route exact path="/login"> 
-                <Login></Login>
-            </Route>
-              
-            <Route  path="/home">
-                <Home></Home>
-            </Route>
-
-            <Route path="*">
-              <NotFound></NotFound>
-            </Route>
-
-            </Switch>
-
-        </Router>
-    
-   
-   </UserContext.Provider>
+    </UserContext.Provider>
   );
 }
 

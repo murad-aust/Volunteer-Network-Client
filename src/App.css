@@ -7,11 +7,7 @@
   background-repeat: no-repeat, repeat;
 
 }
-.transbox{
-  background:url('./logos/Rectangle 62.png');
-  color: black;
-  height: 400px;
-}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

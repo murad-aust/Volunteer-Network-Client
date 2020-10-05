@@ -6,26 +6,30 @@ import './Event.css';
 
 
 const Event = (props) => {
-    const {_id,option, image}= props.event;
+  const { _id, event, image } = props.event;
 
-    const handleEvent = () =>{
-      
-    }
-   
-    return (
-      <div >
-        <Container >
-        <Link to={"/event/"+_id}>   
-              <Card onClick={handleEvent} className="card" style={{position: 'relative', bottom:'100px'}}>
-                <Card.Img className="card-img" variant="top" src={image}/>
-                <Card.Footer style={{background:'gray', height:'60px'}}>
-                  <h6>{option}</h6> 
-                </Card.Footer>  
-            </Card>
-            </Link>
-  </Container>
-  </div>
-    );
+  const randomColor = () => {
+    const background = ['#FFBD3E', '#421FCF', '#3F90FC', '#FF7044',]
+    const color = background[Math.floor(Math.random() * background.length)];
+    return color;
+  }
+
+
+
+  return (
+    <div >
+      <Container >
+        <Link to={"/event/" + _id}>
+          <Card  className="card" style={{ position: 'relative', bottom: '100px' }}>
+            <Card.Img className="card-img" variant="top" src={image} />
+            <Card.Footer style={{ backgroundColor: randomColor(), color: 'white', textAlign: 'center', height: '60px' }}>
+              <h6>{event}</h6>
+            </Card.Footer>
+          </Card>
+        </Link>
+      </Container>
+    </div>
+  );
 };
 
 export default Event;

@@ -10,25 +10,24 @@ const style = {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     height: '660px',
-    
 
-  }
+}
 
 const Register = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     const history = useHistory();
 
     const [event, setEvent] = useState([]);
 
-   
-    useEffect(()=>{
-     fetch('http://localhost:5000/event/'+ id )
-      .then(res =>res.json())
-      .then(data =>setEvent(data))
 
-    },[id]);
+    useEffect(() => {
+        fetch('http://localhost:5000/event/' + id)
+            .then(res => res.json())
+            .then(data => setEvent(data))
+
+    }, [id]);
 
     const handleBlur = (e) => {
         loggedInUser[e.target.name] = e.target.value;
@@ -36,84 +35,84 @@ const Register = () => {
     }
 
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
 
-        const activities={
+        const activities = {
             name: loggedInUser.name,
             email: loggedInUser.email,
             date: loggedInUser.date,
             description: loggedInUser.description,
-            event: event.option,
+            event: event.event,
             image: event.image,
         }
-       
+
         fetch('http://localhost:5000/addActivities', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(activities)
         })
-        .then(res => res.json())
-        .then(data => {
-            history.push("/activities")
-        })
+            .then(res => res.json())
+            .then(data => {
+                history.push("/activities")
+            })
 
         e.preventDefault()
-       
-      
+
+
     }
-    
-   
+
+
     return (
         <div style={style}>
-        <Container>
-            <Navbar className="d-flex justify-content-center">
-                <Navbar.Brand >
-                    <img
-                        src={logo}
-                        width="150"
-                        height="80"
-                        className="d-inline-block align-top"
-                        alt="React Bootstrap logo"
+            <Container>
+                <Navbar className="d-flex justify-content-center">
+                    <Navbar.Brand >
+                        <img
+                            src={logo}
+                            width="150"
+                            height="80"
+                            className="d-inline-block align-top"
+                            alt="React Bootstrap logo"
 
-                    />
-                </Navbar.Brand  >
-            </Navbar>
+                        />
+                    </Navbar.Brand  >
+                </Navbar>
 
-            <div className="border  border-dark d-flex justify-content-center">
-                <form onSubmit={handleSubmit}>
-                    <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Register as a Volunteer</div>
-                    <br/>
+                <div className="border  border-dark d-flex justify-content-center">
+                    <form onSubmit={handleSubmit}>
+                        <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Register as a Volunteer</div>
+                        <br />
 
-                    <div className="form-group">
-                        <input type="text" name="name" placeholder="Full Name" defaultValue={loggedInUser.name} />
-                    </div>
+                        <div className="form-group">
+                            <input type="text" name="name" placeholder="Full Name" defaultValue={loggedInUser.name} />
+                        </div>
 
-                    <div className=" form-group">
-                        <input type="email" name="email" placeholder="Username/Email" defaultValue={loggedInUser.email} />
-                    </div>
-
-
-                    <div className="form-group">
-                        <input type="date" name="date" onBlur={handleBlur} placeholder="Date" required />
-                    </div>
+                        <div className=" form-group">
+                            <input type="email" name="email" placeholder="Username/Email" defaultValue={loggedInUser.email} />
+                        </div>
 
 
+                        <div className="form-group">
+                            <input type="date" name="date" onBlur={handleBlur} placeholder="Date" required />
+                        </div>
 
-                    <div className="form-group">
-                        <input type="text" name="description" onBlur={handleBlur}  placeholder="Description" required />
-                    </div>
 
-                    <div className="form-group">
-                        <input type="text" name="event" placeholder="Event" defaultValue={event.option}/>
-                    </div>
 
-                    <div>
-                        <input type="submit" className="btn btn-primary" value="Registration" />
-                    </div>
+                        <div className="form-group">
+                            <input type="text" name="description" onBlur={handleBlur} placeholder="Description" required />
+                        </div>
 
-                </form>
-            </div>
-        </Container>
+                        <div className="form-group">
+                            <input type="text" name="event" placeholder="Event" defaultValue={event.event} />
+                        </div>
+
+                        <div>
+                            <input type="submit" className="btn btn-primary" value="Registration" />
+                        </div>
+
+                    </form>
+                </div>
+            </Container>
         </div>
 
 
