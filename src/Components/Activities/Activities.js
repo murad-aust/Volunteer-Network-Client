@@ -19,7 +19,7 @@ const Activities = () => {
 
     const handleActivityDelete = (id)=> {
        
-            fetch(`http://localhost:5000/delete/${id}` ,{
+            fetch(`https://fast-woodland-36481.herokuapp.com/delete/${id}` ,{
         method: 'DELETE',
         
       })

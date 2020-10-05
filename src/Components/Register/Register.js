@@ -23,7 +23,7 @@ const Register = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/event/' + id)
+        fetch('https://fast-woodland-36481.herokuapp.com/event/' + id)
             .then(res => res.json())
             .then(data => setEvent(data))
 
@@ -46,7 +46,7 @@ const Register = () => {
             image: event.image,
         }
 
-        fetch('http://localhost:5000/addActivities', {
+        fetch('https://fast-woodland-36481.herokuapp.com/addActivities', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(activities)
