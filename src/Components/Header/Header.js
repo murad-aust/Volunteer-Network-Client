@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../logos/Group 1329.png';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 const Header = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   return (
     <Container>
 
@@ -21,18 +23,32 @@ const Header = () => {
         </Navbar.Brand  >
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse id="responsive-navbar-nav">
 
-          <Nav className="navbar-nav ml-auto "  >
+            <Nav className="navbar-nav ml-auto "  >
 
-            <Nav.Link style={{ paddingLeft: '30px', color: 'black' }} href="#">Home</Nav.Link>
-            <Nav.Link style={{ paddingLeft: '30px', color: 'black' }} href="#">Donation</Nav.Link>
-            <Nav.Link style={{ paddingLeft: '30px', color: 'black' }} href="#">Events</Nav.Link>
-            <Nav.Link style={{ paddingLeft: '30px', color: 'black' }} href="#">Blog</Nav.Link>
-            <Link to="/login" > <Button style={{ marginLeft: '10px', width: '100px' }} variant="primary">Register</Button></Link>
-            <Link to="/admin" ><Button style={{ marginLeft: '10px', width: '100px' }} variant="secondary">Admin</Button></Link>
-          </Nav>
+              <Link className="nav-link"  to="/home">Home</Link>
+              <Link className="nav-link"  to="/home">Donation</Link>
+              <Link className="nav-link"  to="/home">Events</Link>
+              <Link className="nav-link"  to="/home">Blog</Link>
 
+              {
+
+                loggedInUser.success && loggedInUser.isSignedIn &&
+                <Link className="nav-link"  to="/activities">My Activities</Link>
+              }
+           </Nav>
+              <span style={{ color: 'orange', marginRight: '5px' }}  >{loggedInUser.name}</span>
+              {
+
+                loggedInUser.success && loggedInUser.isSignedIn ?
+                  <Button variant="warning" onClick={() => setLoggedInUser({})}>Sign Out</Button>
+                :
+                <Link to="/login" ><Button style={{ marginLeft: '10px', width: '100px' }} variant="primary"> Login </Button> </Link>
+
+              }
+              <Link to="/admin" ><Button style={{ marginLeft: '10px', width: '100px' }} variant="secondary">Admin</Button></Link>
+        
         </Navbar.Collapse>
 
 

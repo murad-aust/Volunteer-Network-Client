@@ -89,7 +89,7 @@ const AddEvent = () => {
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formBasicFile">
                                     <Form.Label>Banner</Form.Label>
-                                    <Form.Control name="image" onBlur={handleBlur} type="text" placeholder="Enter Image URL" />
+                                    <Form.Control name="image" onBlur={handleBlur} type="text" placeholder="Hosting Image URL" />
                                 </Form.Group>
                             </Form.Row>
                             <input  onClick={handleSubmit} className="btn btn-primary " type="submit" value="Submit"/>

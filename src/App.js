@@ -34,9 +34,9 @@ function App() {
             <Register></Register>
           </PrivateRoute>
 
-          <Route path="/activities">
+          <PrivateRoute path="/activities">
             <Activities></Activities>
-          </Route>
+          </PrivateRoute>
           <Route path="/admin">
             <Admin></Admin>
           </Route>
