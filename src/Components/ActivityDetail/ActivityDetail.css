@@ -1,0 +1,31 @@
+.contain{
+    float: left;
+    margin: 20px;
+    margin-bottom: 5px;
+    border: none;
+    width:450px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.contain img{
+    margin: 20px;
+    height: 160px;
+    width: 190px;
+    border-radius: 10px;
+}
+.details{
+    margin-top: 20px;
+    margin-left:10px;
+    font-weight: bold;
+
+
+}
+.cancelBtn{
+    margin-top:30px;
+    left: 120px;
+    position: relative;
+       
+    
+}

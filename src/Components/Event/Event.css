@@ -1,0 +1,17 @@
+.card-img{
+    height: 240px;
+    width: 255px;
+  
+}
+.card{
+    margin:10px;
+    float: left;
+    height: 300px;
+    width: 255px;
+    border-radius: 30px;
+    border: none !important;
+    color: black;
+    position: absolute;
+
+    
+}

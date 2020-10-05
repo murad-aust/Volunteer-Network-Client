@@ -1,7 +1,17 @@
 .App {
   text-align: center;
-}
+  background-image: url('./logos/Mask Group.png'), url('./logos/Rectangle 62.png');
+  background-position: center, center; 
+  background-size: 400px 200px, 500px 400px; 
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
 
+}
+.transbox{
+  background:url('./logos/Rectangle 62.png');
+  color: black;
+  height: 400px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
