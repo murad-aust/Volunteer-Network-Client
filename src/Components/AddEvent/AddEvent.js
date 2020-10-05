@@ -23,15 +23,18 @@ const AddEvent = () => {
 
     const handleSubmit = () => {
 
-
         fetch('https://fast-woodland-36481.herokuapp.com/addEvent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(events)
         })
             .then(res => res.json())
-            .then(data => {
-                history.push('/admin')
+            .then(result => {
+            
+                 if(result){
+                  history.push('/')
+                 }
+                
             })
 
 
@@ -69,7 +72,8 @@ const AddEvent = () => {
                 <div style={{ margin: '30px', width: '100%', backgroundColor: 'white' }}>
                     <h3 style={{ margin: '20px' }} >Add Event</h3>
                     <div style={{ margin: '20px', }}>
-                        <Form>
+
+                        <Form onSubmit={handleSubmit}>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formBasicText">
                                     <Form.Label>Event Title</Form.Label>
@@ -92,7 +96,12 @@ const AddEvent = () => {
                                     <Form.Control name="image" onBlur={handleBlur} type="text" placeholder="Hosting Image URL" />
                                 </Form.Group>
                             </Form.Row>
-                            <input  onClick={handleSubmit} className="btn btn-primary " type="submit" value="Submit"/>
+                            <Form.Group >
+                                 <Button  variant="primary" type="submit">
+                                    Submit
+                                </Button>
+                                </Form.Group>
+                           
                                
                         </Form>
                     </div>

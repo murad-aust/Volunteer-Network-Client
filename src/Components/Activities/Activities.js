@@ -27,7 +27,7 @@ const Activities = () => {
       .then(result =>{
           if(result){
               setRemove(!remove)
-           
+
           }
 
       })

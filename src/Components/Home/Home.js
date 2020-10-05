@@ -16,7 +16,7 @@ const style = {
 const style1 = {
     marginTop: '20px',
     backgroundColor: '#EEF5F3',
-    minHeight: '300vh'
+    minHeight: '350vh'
 
 }
 const Home = () => {
