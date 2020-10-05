@@ -16,7 +16,7 @@ const AddEvent = () => {
     }
     const handleBlur = (e) => {
         events[e.target.name] = e.target.value;
-        console.log(events)
+    
 
     }
 
@@ -31,7 +31,7 @@ const AddEvent = () => {
         })
             .then(res => res.json())
             .then(data => {
-                history.push("/admin")
+                history.push('/admin')
             })
 
 
@@ -79,7 +79,7 @@ const AddEvent = () => {
 
                                 <Form.Group as={Col} controlId="formBasicText">
                                     <Form.Label>Event Date</Form.Label>
-                                    <Form.Control name="date" onBlur={handleBlur} placeholder="" type="date" placeholder="Date" />
+                                    <Form.Control name="date" onBlur={handleBlur} placeholder="" type="date" />
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
