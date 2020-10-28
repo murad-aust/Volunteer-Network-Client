@@ -13,4 +13,4 @@ A full-stack website. Where Users can register any event volunteer network.
 * React router for routing 
 * Implemented Firebase Authentication for user’s registration and Login
 * Context API for handle Data
-* Firebase and Heroku for hosting website
+* Firebase and Heroku to host the website
